@@ -19,6 +19,17 @@ app.post('/aluno', (req, res) =>{
     res.status(201).json(novoAluno)
 })
 
+app.put('/aluno/:id', (req,res) =>{
+    const { id } = req.params
+    const alunoIndex = alunos.findIndex(a=> a.id ==id)
+
+    if(alunoIndex > -1) {
+        alunos[alunoIndex] = { id:Number (id), ...req.body}
+        res.status(200).json(alunos[alunoIndex])
+    } else{
+        res.status(404).json({message: "Aluno não encontrado"})
+    }
+})
 
 app.listen(port, () => {
     console.log("Servidor De API Funcionando")

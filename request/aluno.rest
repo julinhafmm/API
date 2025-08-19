@@ -10,3 +10,12 @@ Content-Type: application/json
 {
     "nome": "Marcelo"
 }
+
+### PUT
+
+PUT http://localhost:3000/aluno/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "nome alterado"
+}
